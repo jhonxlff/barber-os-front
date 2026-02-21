@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { mockClients } from '@/mocks/data';
 import { Search, ChevronRight } from 'lucide-react';
+import { PageTransition, FadeInUp } from '@/components/shared/MotionWrapper';
 
 export default function ClientesPage() {
   const { tenant } = useParams();
@@ -27,70 +27,74 @@ export default function ClientesPage() {
   };
 
   return (
-    <div>
+    <PageTransition>
       <PageHeader title="Clientes" description="Gerencie sua carteira de clientes" />
 
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input placeholder="Buscar por nome ou telefone..." className="pl-9" value={search} onChange={e => setSearch(e.target.value)} />
-      </div>
+      <FadeInUp delay={0.1}>
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input placeholder="Buscar por nome ou telefone..." className="pl-9" value={search} onChange={e => setSearch(e.target.value)} />
+        </div>
+      </FadeInUp>
 
-      <Card>
-        <CardContent className="p-0">
-          {/* Desktop table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border text-left">
-                  <th className="p-3 font-medium text-muted-foreground">Nome</th>
-                  <th className="p-3 font-medium text-muted-foreground">Telefone</th>
-                  <th className="p-3 font-medium text-muted-foreground">Último corte</th>
-                  <th className="p-3 font-medium text-muted-foreground">Frequência</th>
-                  <th className="p-3 font-medium text-muted-foreground">Total gasto</th>
-                  <th className="p-3 font-medium text-muted-foreground">Nível</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map(c => (
-                  <tr
-                    key={c.id}
-                    className="border-b border-border/50 hover:bg-muted/50 cursor-pointer transition-colors"
-                    onClick={() => navigate(`/app/${tenant}/clientes/${c.id}`)}
-                  >
-                    <td className="p-3 font-medium">{c.name}</td>
-                    <td className="p-3 text-muted-foreground">{c.phone}</td>
-                    <td className="p-3 text-muted-foreground">{c.lastVisit}</td>
-                    <td className="p-3 text-muted-foreground">a cada {c.averageFrequency} dias</td>
-                    <td className="p-3 font-medium">{c.totalSpent.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                    <td className="p-3"><span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${levelColor(c.loyaltyLevel)}`}>{c.loyaltyLevel}</span></td>
+      <FadeInUp delay={0.2}>
+        <Card>
+          <CardContent className="p-0">
+            {/* Desktop table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border text-left">
+                    <th className="p-3 font-medium text-muted-foreground">Nome</th>
+                    <th className="p-3 font-medium text-muted-foreground">Telefone</th>
+                    <th className="p-3 font-medium text-muted-foreground">Último corte</th>
+                    <th className="p-3 font-medium text-muted-foreground">Frequência</th>
+                    <th className="p-3 font-medium text-muted-foreground">Total gasto</th>
+                    <th className="p-3 font-medium text-muted-foreground">Nível</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {filtered.map(c => (
+                    <tr
+                      key={c.id}
+                      className="border-b border-border/50 hover:bg-muted/50 cursor-pointer transition-colors"
+                      onClick={() => navigate(`/app/${tenant}/clientes/${c.id}`)}
+                    >
+                      <td className="p-3 font-medium">{c.name}</td>
+                      <td className="p-3 text-muted-foreground">{c.phone}</td>
+                      <td className="p-3 text-muted-foreground">{c.lastVisit}</td>
+                      <td className="p-3 text-muted-foreground">a cada {c.averageFrequency} dias</td>
+                      <td className="p-3 font-medium">{c.totalSpent.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                      <td className="p-3"><span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${levelColor(c.loyaltyLevel)}`}>{c.loyaltyLevel}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-          {/* Mobile list */}
-          <div className="md:hidden divide-y divide-border">
-            {filtered.map(c => (
-              <button
-                key={c.id}
-                className="w-full text-left flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
-                onClick={() => navigate(`/app/${tenant}/clientes/${c.id}`)}
-              >
-                <div>
-                  <p className="text-sm font-medium">{c.name}</p>
-                  <p className="text-xs text-muted-foreground">{c.phone} • Último: {c.lastVisit}</p>
-                  <p className="text-xs text-muted-foreground">{c.totalSpent.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} gastos</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border ${levelColor(c.loyaltyLevel)}`}>{c.loyaltyLevel}</span>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                </div>
-              </button>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+            {/* Mobile list */}
+            <div className="md:hidden divide-y divide-border">
+              {filtered.map(c => (
+                <button
+                  key={c.id}
+                  className="w-full text-left flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
+                  onClick={() => navigate(`/app/${tenant}/clientes/${c.id}`)}
+                >
+                  <div>
+                    <p className="text-sm font-medium">{c.name}</p>
+                    <p className="text-xs text-muted-foreground">{c.phone} • Último: {c.lastVisit}</p>
+                    <p className="text-xs text-muted-foreground">{c.totalSpent.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} gastos</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium border ${levelColor(c.loyaltyLevel)}`}>{c.loyaltyLevel}</span>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </FadeInUp>
+    </PageTransition>
   );
 }
