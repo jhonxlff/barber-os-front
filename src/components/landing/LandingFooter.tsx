@@ -9,7 +9,7 @@ export function LandingFooter() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="rounded-lg bg-primary/10 p-1.5"><Scissors className="h-5 w-5 text-primary" /></div>
-              <span className="font-bold text-lg">BarberOS</span>
+              <span className="font-bold text-lg">NavalhaPro</span>
             </div>
             <p className="text-sm text-muted-foreground">O sistema completo para barbearias brasileiras crescerem com tecnologia.</p>
           </div>
@@ -18,7 +18,7 @@ export function LandingFooter() {
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/features" className="hover:text-foreground transition-colors">Funcionalidades</Link>
               <Link to="/pricing" className="hover:text-foreground transition-colors">Preços</Link>
-              <Link to="/demo" className="hover:text-foreground transition-colors">Agendar Demo</Link>
+              <Link to="/demo" className="hover:text-foreground transition-colors">Cadastre-se Grátis</Link>
             </div>
           </div>
           <div>
@@ -39,7 +39,7 @@ export function LandingFooter() {
           </div>
         </div>
         <div className="border-t border-border mt-8 pt-6 text-center text-xs text-muted-foreground">
-          © 2026 BarberOS. Feito com 💛 no Brasil.
+          © 2026 NavalhaPro. Feito com 💛 no Brasil.
         </div>
       </div>
     </footer>

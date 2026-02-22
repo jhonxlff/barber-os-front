@@ -18,7 +18,7 @@ export default function ClientLayout() {
       <header className="flex items-center gap-2 h-14 px-4 border-b border-border bg-card">
         <Link to={basePath} className="flex items-center gap-2">
           <Scissors className="h-5 w-5 text-primary" />
-          <span className="font-bold">BarberOS</span>
+          <span className="font-bold">NavalhaPro</span>
         </Link>
       </header>
 

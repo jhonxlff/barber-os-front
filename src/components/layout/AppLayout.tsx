@@ -82,7 +82,7 @@ export default function AppLayout() {
         )}>
           <div className="flex items-center gap-2 p-4 border-b border-sidebar-border">
             <Scissors className="h-6 w-6 text-primary shrink-0" />
-            {!collapsed && <span className="font-bold text-lg text-sidebar-foreground">BarberOS</span>}
+            {!collapsed && <span className="font-bold text-lg text-sidebar-foreground">NavalhaPro</span>}
           </div>
           <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
             {filteredNav.map(item => <SidebarLink key={item.path} item={item} />)}
@@ -110,7 +110,7 @@ export default function AppLayout() {
               <SheetContent side="left" className="w-64 bg-sidebar p-0">
                 <div className="flex items-center gap-2 p-4 border-b border-sidebar-border">
                   <Scissors className="h-6 w-6 text-primary" />
-                  <span className="font-bold text-lg text-sidebar-foreground">BarberOS</span>
+                  <span className="font-bold text-lg text-sidebar-foreground">NavalhaPro</span>
                 </div>
                 <nav className="p-3 space-y-1">
                   {filteredNav.map(item => (

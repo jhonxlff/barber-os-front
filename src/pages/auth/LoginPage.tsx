@@ -36,7 +36,7 @@ export default function LoginPage() {
               <Scissors className="h-8 w-8 text-primary" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold">BarberOS</CardTitle>
+          <CardTitle className="text-2xl font-bold">NavalhaPro</CardTitle>
           <CardDescription>Entre na sua conta para continuar</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>

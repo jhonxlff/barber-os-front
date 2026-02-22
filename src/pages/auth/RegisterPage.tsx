@@ -32,7 +32,7 @@ export default function RegisterPage() {
             <div className="rounded-full bg-primary/10 p-3"><Scissors className="h-8 w-8 text-primary" /></div>
           </div>
           <CardTitle className="text-2xl font-bold">Criar Conta</CardTitle>
-          <CardDescription>Cadastre sua barbearia no BarberOS</CardDescription>
+          <CardDescription>Cadastre sua barbearia no NavalhaPro</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
