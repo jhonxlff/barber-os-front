@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BarberOS Design System — Dark-first with amber/gold accent */
+/* NavalhaPro Design System — Dark-first with amber/gold accent */
 
 @layer base {
   :root {
@@ -119,4 +119,47 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-yellow-400;
   }
+}
+
+@layer components {
+  .glow-card {
+    @apply relative overflow-hidden;
+  }
+  .glow-card::before {
+    content: '';
+    @apply absolute -inset-px rounded-[inherit] opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.4), transparent 60%);
+  }
+  .glow-card:hover::before {
+    @apply opacity-100;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(38 92% 50% / 0.15); }
+  50% { box-shadow: 0 0 40px hsl(38 92% 50% / 0.35); }
+}
+@keyframes counter-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-delayed { animation: float-delayed 5s ease-in-out infinite 1s; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
 }
