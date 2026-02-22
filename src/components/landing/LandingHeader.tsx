@@ -26,7 +26,7 @@ export function LandingHeader() {
           <div className="rounded-lg bg-primary/10 p-1.5 group-hover:bg-primary/20 transition-colors">
             <Scissors className="h-5 w-5 text-primary" />
           </div>
-          <span className="font-bold text-xl">BarberOS</span>
+          <span className="font-bold text-xl">NavalhaPro</span>
         </Link>
 
         {/* Desktop nav */}
@@ -43,7 +43,7 @@ export function LandingHeader() {
             <Button variant="ghost" size="sm">Entrar</Button>
           </Link>
           <Link to="/demo">
-            <Button size="sm">Agendar Demo</Button>
+            <Button size="sm">Cadastre-se Grátis</Button>
           </Link>
         </div>
 
@@ -64,7 +64,7 @@ export function LandingHeader() {
                 <Button variant="outline" className="w-full">Entrar</Button>
               </Link>
               <Link to="/demo" onClick={() => setOpen(false)}>
-                <Button className="w-full">Agendar Demo</Button>
+                <Button className="w-full">Cadastre-se Grátis</Button>
               </Link>
             </nav>
           </SheetContent>

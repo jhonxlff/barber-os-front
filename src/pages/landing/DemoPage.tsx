@@ -36,7 +36,7 @@ export default function DemoPage() {
               Comece agora, <span className="text-gradient">grátis por 14 dias</span>
             </h1>
             <p className="text-muted-foreground mb-8">
-              Crie sua conta em 2 minutos e veja como o BarberOS pode transformar sua barbearia. Sem surpresas, sem compromisso.
+              Crie sua conta em 2 minutos e veja como o NavalhaPro pode transformar sua barbearia. Sem surpresas, sem compromisso.
             </p>
             <div className="space-y-4">
               {benefits.map(b => (

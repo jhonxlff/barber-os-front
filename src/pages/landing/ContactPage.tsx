@@ -71,7 +71,7 @@ export default function ContactPage() {
               <div className="space-y-4">
                 {[
                   { icon: MessageSquare, label: 'WhatsApp', value: '(11) 99999-0000', desc: 'Resposta em até 2 horas' },
-                  { icon: Mail, label: 'E-mail', value: 'contato@barberos.com.br', desc: 'Resposta em até 24 horas' },
+                  { icon: Mail, label: 'E-mail', value: 'contato@navalhapro.com.br', desc: 'Resposta em até 24 horas' },
                   { icon: Phone, label: 'Telefone', value: '0800 123 4567', desc: 'Seg a Sex, 9h às 18h' },
                   { icon: MapPin, label: 'Escritório', value: 'São Paulo — SP', desc: 'Av. Paulista, 1000' },
                 ].map(c => (

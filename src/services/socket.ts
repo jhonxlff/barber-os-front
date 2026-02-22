@@ -1,4 +1,4 @@
-// BarberOS — WebSocket service (estrutura pronta para backend)
+// NavalhaPro — WebSocket service (estrutura pronta para backend)
 // TODO: Conectar ao servidor WebSocket real quando o backend estiver pronto
 
 import { WS_URL } from '@/config/env';
@@ -20,7 +20,7 @@ class SocketService {
     // this.ws.onclose = () => {
     //   this.reconnectTimer = setTimeout(() => this.connect(token), 5000);
     // };
-    console.log('[BarberOS Socket] Estrutura WebSocket pronta. URL:', WS_URL);
+    console.log('[NavalhaPro Socket] Estrutura WebSocket pronta. URL:', WS_URL);
   }
 
   disconnect() {

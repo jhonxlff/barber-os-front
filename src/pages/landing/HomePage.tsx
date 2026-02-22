@@ -31,7 +31,7 @@ const features = [
 ];
 
 const testimonials = [
-  { name: 'Carlos Silva', role: 'Barbearia Clássica — SP', text: 'Reduzi 40% das faltas e aumentei meu faturamento em 3 meses. O BarberOS transformou meu negócio.' },
+  { name: 'Carlos Silva', role: 'Barbearia Clássica — SP', text: 'Reduzi 40% das faltas e aumentei meu faturamento em 3 meses. O NavalhaPro transformou meu negócio.' },
   { name: 'André Costa', role: 'Studio Barber — RJ', text: 'Meus clientes adoram agendar pelo celular. A fila digital acabou com a confusão na loja.' },
   { name: 'Felipe Mendes', role: 'Barba & Navalha — MG', text: 'O controle financeiro me deu clareza. Sei exatamente quanto cada barbeiro traz de receita.' },
 ];
