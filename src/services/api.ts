@@ -107,3 +107,17 @@ export const automationsApi = {
   toggle: (tenantSlug: string, id: string, active: boolean) =>
     api.patch(`/tenants/${tenantSlug}/automations/${id}`, { active }),
 };
+
+export const dashboardApi = {
+  metrics: (tenantSlug: string) => api.get(`/tenants/${tenantSlug}/dashboard/metrics`),
+  charts: (tenantSlug: string, days = 60, top = 5) =>
+    api.get(`/tenants/${tenantSlug}/dashboard/charts?days=${days}&top=${top}`),
+};
+
+export const publicApi = {
+  tenant: (tenantSlug: string) => api.get(`/public/tenants/${tenantSlug}`),
+  services: (tenantSlug: string) => api.get(`/public/tenants/${tenantSlug}/services`),
+  team: (tenantSlug: string) => api.get(`/public/tenants/${tenantSlug}/team`),
+  upsertClient: (tenantSlug: string, data: unknown) => api.post(`/public/tenants/${tenantSlug}/clients/upsert`, data),
+  createAppointment: (tenantSlug: string, data: unknown) => api.post(`/public/tenants/${tenantSlug}/appointments`, data),
+};
